@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Route;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,5 +21,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+          // 👇 Ye dono line manually add karo
+          Route::middleware('api')
+          ->prefix('api')
+          ->group(base_path('routes/api.php'));
+
+           Route::middleware('web')
+          ->group(base_path('routes/web.php'));
     }
 }
